@@ -1,10 +1,16 @@
-------Clustering tendency - clusterable or not?------
+#------Library packages------#
+library("cluster") 
+library("factoextra") # data visualization
+library("NbClust") # determining the optimal number of clusters in the data se
+library("fpc") # computing clustering validation statistics
+
+#------Clustering tendency - clusterable or not?------#
 
 #test the clustering tendency for df_pcscores
 get_clust_tendency(df_pcscores, n = 1000, graph = FALSE)
 
 
-------Partitioning (K-means) clustering------
+#------Partitioning (K-means) clustering------#
 
 pairs(df_pcscores)
 
@@ -17,7 +23,7 @@ km_cluster <- km.df_pcscores$cluster
 
 head(km_cluster)
 
-------Relative cluster validation - determing optimal K------
+#------Relative cluster validation - determing optimal K------#
 
 #Elbow method
 fviz_nbclust(df_pcscores, kmeans, method = "wss") +
